@@ -148,7 +148,7 @@ public class ARCoreActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
-        if (id == R.id.action_settings) {
+        if (id == R.string.action_settings) {
             return true;
         }
 
@@ -308,4 +308,7 @@ public class ARCoreActivity extends AppCompatActivity {
             handlerThread.quitSafely();
         }, new Handler(handlerThread.getLooper()));
     }
+
+
+
 }

@@ -103,18 +103,4 @@ public class MainActivity extends AppCompatActivity {
 //        return true;
     }
 
-    private void initializeGallery() {
-        LinearLayout gallery = findViewById(R.id.gallery_layout);
-
-        ImageView bubbleTea = new ImageView(this);
-        bubbleTea.setImageResource(R.drawable.bubbletea);
-        bubbleTea.setContentDescription("bubbletea");
-        bubbleTea.setOnClickListener(view -> {
-            addObject(Uri.parse("Shake.sfb"));
-
-        });
-
-    }
-
-
 }
