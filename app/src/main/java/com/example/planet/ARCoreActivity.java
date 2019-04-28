@@ -45,6 +45,8 @@ import java.util.Date;
 import java.util.List;
 import java.util.concurrent.CompletableFuture;
 
+import static com.example.planet.CounterHelper.TAG_CONSUMPTION_SCORE;
+
 public class ARCoreActivity extends AppCompatActivity {
 
     private static final String TAG = "findme";
@@ -69,6 +71,17 @@ public class ARCoreActivity extends AppCompatActivity {
             }
         });
 
+        FloatingActionButton tally = findViewById(R.id.fab_tally);
+        tally.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent consumption_score_intent = new Intent(getApplicationContext(), CounterActivity.class);
+                int consumption = CounterHelper.getConsumption_score();
+                consumption_score_intent.putExtra(TAG_CONSUMPTION_SCORE, consumption);
+                startActivity(consumption_score_intent);
+            }
+        });
+
 
         fragment = (ArFragment)
                 getSupportFragmentManager().findFragmentById(R.id.sceneform_fragment);
@@ -82,6 +95,7 @@ public class ARCoreActivity extends AppCompatActivity {
         fab.setOnClickListener(view -> takePhoto());
 
     }
+
     private void onUpdate() {
         boolean trackingChanged = updateTracking();
         View contentView = findViewById(android.R.id.content);
@@ -118,7 +132,6 @@ public class ARCoreActivity extends AppCompatActivity {
                     isHitting = true;
                     CounterHelper counterHelper = new CounterHelper();
                     counterHelper.increaseConsumptionScore();
-
                     break;
                 }
             }
