@@ -13,11 +13,10 @@ import android.support.v4.content.FileProvider;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
-import android.view.PixelCopy;
-import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.PixelCopy;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.Toast;
@@ -41,7 +40,6 @@ import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
-import java.util.concurrent.CompletableFuture;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -59,13 +57,8 @@ public class MainActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
         FloatingActionButton fab = findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
+        fab.setOnClickListener(view -> Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+                .setAction("Action", null).show());
 
         fragment = (ArFragment)
                 getSupportFragmentManager().findFragmentById(R.id.sceneform_fragment);
@@ -123,7 +116,7 @@ public class MainActivity extends AppCompatActivity {
 
     private android.graphics.Point getScreenCenter() {
         View vw = findViewById(android.R.id.content);
-        return new android.graphics.Point(vw.getWidth()/2, vw.getHeight()/2);
+        return new android.graphics.Point(vw.getWidth() / 2, vw.getHeight() / 2);
     }
 
     private boolean updateTracking() {
@@ -136,19 +129,13 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_main, menu);
         return true;
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
             return true;
         }
@@ -162,26 +149,42 @@ public class MainActivity extends AppCompatActivity {
         ImageView andy = new ImageView(this);
         andy.setImageResource(R.drawable.droid_thumb);
         andy.setContentDescription("andy");
-        andy.setOnClickListener(view ->{addObject(Uri.parse("andy.sfb") );});
+        andy.setOnClickListener(view -> {
+            addObject(Uri.parse("andy.sfb"));
+        });
         gallery.addView(andy);
 
         ImageView cabin = new ImageView(this);
         cabin.setImageResource(R.drawable.cabin_thumb);
         cabin.setContentDescription("cabin");
-        cabin.setOnClickListener(view ->{addObject(Uri.parse("Cabin.sfb"));});
+        cabin.setOnClickListener(view -> {
+            addObject(Uri.parse("Cabin.sfb"));
+        });
         gallery.addView(cabin);
 
         ImageView house = new ImageView(this);
         house.setImageResource(R.drawable.house_thumb);
         house.setContentDescription("house");
-        house.setOnClickListener(view ->{addObject(Uri.parse("House.sfb"));});
+        house.setOnClickListener(view -> {
+            addObject(Uri.parse("House.sfb"));
+        });
         gallery.addView(house);
 
         ImageView igloo = new ImageView(this);
         igloo.setImageResource(R.drawable.igloo_thumb);
         igloo.setContentDescription("igloo");
-        igloo.setOnClickListener(view ->{addObject(Uri.parse("igloo.sfb"));});
+        igloo.setOnClickListener(view -> {
+            addObject(Uri.parse("igloo.sfb"));
+        });
         gallery.addView(igloo);
+
+        ImageView waterBottle = new ImageView(this);
+        waterBottle.setImageResource(R.drawable.water_bottle);
+        waterBottle.setContentDescription("water_bottle");
+        waterBottle.setOnClickListener(view -> {
+            addObject(Uri.parse("Water_Bottle_01.sfb"));
+        });
+        gallery.addView(waterBottle);
     }
 
     private void addObject(Uri model) {
@@ -203,7 +206,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void placeObject(ArFragment fragment, Anchor anchor, Uri model) {
-        CompletableFuture<Void> renderableFuture = ModelRenderable.builder()
+        ModelRenderable.builder()
                 .setSource(fragment.getContext(), model)
                 .build()
                 .thenAccept(renderable -> addNodeToScene(fragment, anchor, renderable))
@@ -232,6 +235,7 @@ public class MainActivity extends AppCompatActivity {
         return Environment.getExternalStoragePublicDirectory(
                 Environment.DIRECTORY_PICTURES) + File.separator + "Sceneform/" + date + "_screenshot.jpg";
     }
+
     private void saveBitmapToDisk(Bitmap bitmap, String filename) throws IOException {
 
         File out = new File(filename);
@@ -253,14 +257,11 @@ public class MainActivity extends AppCompatActivity {
         final String filename = generateFilename();
         ArSceneView view = fragment.getArSceneView();
 
-        // Create a bitmap the size of the scene view.
         final Bitmap bitmap = Bitmap.createBitmap(view.getWidth(), view.getHeight(),
                 Bitmap.Config.ARGB_8888);
 
-        // Create a handler thread to offload the processing of the image.
         final HandlerThread handlerThread = new HandlerThread("PixelCopier");
         handlerThread.start();
-        // Make the request to copy.
         PixelCopy.request(view, bitmap, (copyResult) -> {
             if (copyResult == PixelCopy.SUCCESS) {
                 try {

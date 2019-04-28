@@ -58,3 +58,8 @@ sceneform.asset('sampledata/models/igloo.obj',
         'default',
         'sampledata/models/igloo.sfa',
         'src/main/assets/igloo')
+
+sceneform.asset('sampledata/models/Water_Bottle_01.obj',
+        'default',
+        'sampledata/models/Water_Bottle_01.sfa',
+        'src/main/assets/Water_Bottle_01')
