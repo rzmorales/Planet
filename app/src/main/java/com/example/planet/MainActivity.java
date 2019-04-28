@@ -44,7 +44,7 @@ import java.util.Date;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
-
+    // TODO: Remove me later
     private static final String TAG = "findme";
     private ArFragment fragment;
     private PointerDrawable pointer = new PointerDrawable();
@@ -60,9 +60,12 @@ public class MainActivity extends AppCompatActivity {
         recyclerView = findViewById(R.id.RecyclerView_id);
         recyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
 
+<<<<<<< HEAD
 
 
 
+=======
+>>>>>>> master
         setSupportActionBar(toolbar);
 
         FloatingActionButton fab = findViewById(R.id.fab);
