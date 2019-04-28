@@ -37,6 +37,7 @@
     file: 'sampledata/models/CHAHIN_BOTTLE_OF_SODA.obj',
     name: 'CHAHIN_BOTTLE_OF_SODA',
     recenter: 'root',
+    scale: 0.1,
   },
   version: '0.54:2',
 }

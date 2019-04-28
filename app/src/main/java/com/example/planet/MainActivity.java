@@ -107,6 +107,8 @@ public class MainActivity extends AppCompatActivity {
                 if (trackable instanceof Plane &&
                         ((Plane) trackable).isPoseInPolygon(hit.getHitPose())) {
                     isHitting = true;
+                    CounterHelper counterHelper = new CounterHelper();
+                    counterHelper.increaseConsumptionScore();
                     break;
                 }
             }
