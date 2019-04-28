@@ -47,7 +47,6 @@ import java.util.List;
 import java.util.concurrent.CompletableFuture;
 
 public class MainActivity extends AppCompatActivity {
-    // TODO: Remove me later
     private static final String TAG = "findme";
     private ArFragment fragment;
     private PointerDrawable pointer = new PointerDrawable();
@@ -74,6 +73,7 @@ public class MainActivity extends AppCompatActivity {
                  startActivity(intent);
             }
         });
+
 
 
     }
