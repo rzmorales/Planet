@@ -60,12 +60,6 @@ public class MainActivity extends AppCompatActivity {
         recyclerView = findViewById(R.id.RecyclerView_id);
         recyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
 
-<<<<<<< HEAD
-
-
-
-=======
->>>>>>> master
         setSupportActionBar(toolbar);
 
         FloatingActionButton fab = findViewById(R.id.fab);
