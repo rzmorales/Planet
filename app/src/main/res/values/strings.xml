@@ -2,5 +2,6 @@
     <string name="app_name">Planet</string>
     <string name="action_settings">Settings</string>
     <string name="application_name">Planet</string>
+    <string name="title_activity_arcore">ARCoreActivity</string>
 
 </resources>
