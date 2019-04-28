@@ -35,33 +35,35 @@ dependencies {
     implementation "com.google.ar.sceneform.ux:sceneform-ux:1.8.0"
     implementation 'com.android.support:support-annotations:28.0.0'
     implementation 'org.jetbrains:annotations:15.0'
+    implementation 'com.android.support:recyclerview-v7:28.0.0'
     implementation 'com.android.support:design:28.0.0'
     implementation 'com.github.bumptech.glide:glide:4.9.0'
     annotationProcessor 'com.github.bumptech.glide:compiler:4.9.0'
 }
 
 
-sceneform.asset('sampledata/models/andy.obj',
-        'default',
-        'sampledata/models/andy.sfa',
-        'src/main/assets/andy')
-
-sceneform.asset('sampledata/models/Cabin.obj',
-        'default',
-        'sampledata/models/Cabin.sfa',
-        'src/main/assets/Cabin')
-
-sceneform.asset('sampledata/models/House.obj',
-        'default',
-        'sampledata/models/House.sfa',
-        'src/main/assets/House')
-
-sceneform.asset('sampledata/models/igloo.obj',
-        'default',
-        'sampledata/models/igloo.sfa',
-        'src/main/assets/igloo')
-
 sceneform.asset('sampledata/models/Water_Bottle_01.obj',
         'default',
         'sampledata/models/Water_Bottle_01.sfa',
         'src/main/assets/Water_Bottle_01')
+
+sceneform.asset('sampledata/models/Cups_494.obj',
+        'default',
+        'sampledata/models/Cups_494.sfa',
+        'src/main/assets/Cups_494')
+
+sceneform.asset('sampledata/models/Beer.obj',
+        'default',
+        'sampledata/models/Beer.sfa',
+        'src/main/assets/Beer')
+
+sceneform.asset('sampledata/models/CHAHIN_BOTTLE_OF_SODA.obj',
+        'default',
+        'sampledata/models/CHAHIN_BOTTLE_OF_SODA.sfa',
+        'src/main/assets/CHAHIN_BOTTLE_OF_SODA')
+
+
+sceneform.asset('sampledata/models/Shake.obj',
+        'default',
+        'sampledata/models/Shake.sfa',
+        'src/main/assets/Shake')

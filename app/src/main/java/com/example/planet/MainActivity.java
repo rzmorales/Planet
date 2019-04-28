@@ -12,6 +12,8 @@ import android.support.design.widget.Snackbar;
 import android.support.v4.content.FileProvider;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -42,18 +44,22 @@ import java.util.Date;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
-
+    // TODO: Remove me later
     private static final String TAG = "findme";
     private ArFragment fragment;
     private PointerDrawable pointer = new PointerDrawable();
     private boolean isTracking;
     private boolean isHitting;
+    RecyclerView recyclerView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Toolbar toolbar = findViewById(R.id.toolbar);
+        recyclerView = findViewById(R.id.RecyclerView_id);
+        recyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
+
         setSupportActionBar(toolbar);
 
         FloatingActionButton fab = findViewById(R.id.fab);
@@ -71,7 +77,6 @@ public class MainActivity extends AppCompatActivity {
 
         fab.setOnClickListener(view -> takePhoto());
     }
-
 
     private void onUpdate() {
         boolean trackingChanged = updateTracking();
@@ -107,6 +112,8 @@ public class MainActivity extends AppCompatActivity {
                 if (trackable instanceof Plane &&
                         ((Plane) trackable).isPoseInPolygon(hit.getHitPose())) {
                     isHitting = true;
+                    CounterHelper counterHelper = new CounterHelper();
+                    counterHelper.increaseConsumptionScore();
                     break;
                 }
             }
@@ -146,37 +153,29 @@ public class MainActivity extends AppCompatActivity {
     private void initializeGallery() {
         LinearLayout gallery = findViewById(R.id.gallery_layout);
 
-        ImageView andy = new ImageView(this);
-        andy.setImageResource(R.drawable.droid_thumb);
-        andy.setContentDescription("andy");
-        andy.setOnClickListener(view -> {
-            addObject(Uri.parse("andy.sfb"));
+        ImageView bubbleTea = new ImageView(this);
+        bubbleTea.setImageResource(R.drawable.bubbletea);
+        bubbleTea.setContentDescription("bubbletea");
+        bubbleTea.setOnClickListener(view -> {
+            addObject(Uri.parse("Shake.sfb"));
         });
-        gallery.addView(andy);
+        gallery.addView(bubbleTea);
 
-        ImageView cabin = new ImageView(this);
-        cabin.setImageResource(R.drawable.cabin_thumb);
-        cabin.setContentDescription("cabin");
-        cabin.setOnClickListener(view -> {
-            addObject(Uri.parse("Cabin.sfb"));
+        ImageView can = new ImageView(this);
+        can.setImageResource(R.drawable.can);
+        can.setContentDescription("can");
+        can.setOnClickListener(view -> {
+            addObject(Uri.parse("Beer.sfb"));
         });
-        gallery.addView(cabin);
+        gallery.addView(can);
 
-        ImageView house = new ImageView(this);
-        house.setImageResource(R.drawable.house_thumb);
-        house.setContentDescription("house");
-        house.setOnClickListener(view -> {
-            addObject(Uri.parse("House.sfb"));
+        ImageView cups = new ImageView(this);
+        cups.setImageResource(R.drawable.cups2);
+        cups.setContentDescription("cups");
+        cups.setOnClickListener(view -> {
+            addObject(Uri.parse("Cups_494.sfb"));
         });
-        gallery.addView(house);
-
-        ImageView igloo = new ImageView(this);
-        igloo.setImageResource(R.drawable.igloo_thumb);
-        igloo.setContentDescription("igloo");
-        igloo.setOnClickListener(view -> {
-            addObject(Uri.parse("igloo.sfb"));
-        });
-        gallery.addView(igloo);
+        gallery.addView(cups);
 
         ImageView waterBottle = new ImageView(this);
         waterBottle.setImageResource(R.drawable.water_bottle);
@@ -185,6 +184,14 @@ public class MainActivity extends AppCompatActivity {
             addObject(Uri.parse("Water_Bottle_01.sfb"));
         });
         gallery.addView(waterBottle);
+
+        ImageView soda = new ImageView(this);
+        soda.setImageResource(R.drawable.soda);
+        soda.setContentDescription("soda");
+        soda.setOnClickListener(view -> {
+            addObject(Uri.parse("CHAHIN_BOTTLE_OF_SODA.sfb"));
+        });
+        gallery.addView(soda);
     }
 
     private void addObject(Uri model) {
