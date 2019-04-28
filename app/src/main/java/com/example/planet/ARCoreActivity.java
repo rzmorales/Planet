@@ -45,6 +45,8 @@ import java.util.Date;
 import java.util.List;
 import java.util.concurrent.CompletableFuture;
 
+import static com.example.planet.CounterHelper.TAG_CONSUMPTION_SCORE;
+
 public class ARCoreActivity extends AppCompatActivity {
 
     private static final String TAG = "findme";
@@ -66,6 +68,17 @@ public class ARCoreActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
+            }
+        });
+
+        FloatingActionButton tally = findViewById(R.id.fab_tally);
+        tally.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent consumption_score_intent = new Intent(getApplicationContext(), CounterActivity.class);
+                int consumption = CounterHelper.getConsumption_score();
+                consumption_score_intent.putExtra(TAG_CONSUMPTION_SCORE, consumption);
+                startActivity(consumption_score_intent);
             }
         });
 
@@ -119,7 +132,6 @@ public class ARCoreActivity extends AppCompatActivity {
                     isHitting = true;
                     CounterHelper counterHelper = new CounterHelper();
                     counterHelper.increaseConsumptionScore();
-
                     break;
                 }
             }
