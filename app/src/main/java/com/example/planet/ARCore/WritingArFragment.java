@@ -1,4 +1,4 @@
-package com.example.planet;
+package com.example.planet.ARCore;
 
 import android.Manifest;
 
