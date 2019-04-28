@@ -29,7 +29,7 @@
         android:layout_gravity="bottom|end"
         android:layout_marginBottom="72dp"
         android:layout_marginRight="8dp"
-        app:srcCompat="@android:drawable/ic_dialog_email" />
+        app:srcCompat="@android:drawable/ic_menu_camera" />
 
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/fab_tally"
