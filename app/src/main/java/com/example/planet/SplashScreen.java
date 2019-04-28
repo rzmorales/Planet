@@ -21,7 +21,7 @@ public class SplashScreen extends AppCompatActivity {
         splashImage = findViewById(R.id.splash_image);
 
         Glide.with(SplashScreen.this)
-                .load(R.drawable.planet_splash_image)
+                .load(R.drawable.earth_day)
                 .into(splashImage);
 
         new Handler().postDelayed(new Runnable() {
