@@ -20,7 +20,7 @@ public class CounterActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_counter);
 
-        txtv_consumption_score = findViewById(R.id.consumption_score);
+//        txtv_consumption_score = findViewById(R.id.consumption_score);
         txtv_recycled_score = findViewById(R.id.recycled_score);
 //
 //        Intent intent = getIntent();
