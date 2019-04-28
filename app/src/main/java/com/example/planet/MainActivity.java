@@ -12,6 +12,8 @@ import android.support.design.widget.Snackbar;
 import android.support.v4.content.FileProvider;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -42,18 +44,22 @@ import java.util.Date;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
-
+    // TODO: Remove me later
     private static final String TAG = "findme";
     private ArFragment fragment;
     private PointerDrawable pointer = new PointerDrawable();
     private boolean isTracking;
     private boolean isHitting;
+    RecyclerView recyclerView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Toolbar toolbar = findViewById(R.id.toolbar);
+        recyclerView = findViewById(R.id.RecyclerView_id);
+        recyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
+
         setSupportActionBar(toolbar);
 
         FloatingActionButton fab = findViewById(R.id.fab);
@@ -71,7 +77,6 @@ public class MainActivity extends AppCompatActivity {
 
         fab.setOnClickListener(view -> takePhoto());
     }
-
 
     private void onUpdate() {
         boolean trackingChanged = updateTracking();
