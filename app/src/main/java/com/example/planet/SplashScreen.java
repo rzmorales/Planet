@@ -10,7 +10,7 @@ import com.bumptech.glide.Glide;
 
 public class SplashScreen extends AppCompatActivity {
     ImageView splashImage;
-    private static int SPLASH_SCREEN_TIMER = 5000;
+    private static int SPLASH_SCREEN_TIMER = 5750;
     private Intent toLoginScreenIntent;
 
     @Override
@@ -21,7 +21,7 @@ public class SplashScreen extends AppCompatActivity {
         splashImage = findViewById(R.id.splash_image);
 
         Glide.with(SplashScreen.this)
-                .load(R.drawable.planet_splash_image)
+                .load(R.drawable.earth_day)
                 .into(splashImage);
 
         new Handler().postDelayed(new Runnable() {
