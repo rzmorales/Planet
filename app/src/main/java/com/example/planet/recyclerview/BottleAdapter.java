@@ -1,4 +1,4 @@
-package com.example.planet;
+package com.example.planet.recyclerview;
 
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
@@ -6,16 +6,17 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.example.planet.model.CameraImage;
+import com.example.planet.R;
+import com.example.planet.model.BottleModel;
 
 import java.util.List;
 
 public class BottleAdapter extends RecyclerView.Adapter<BottleViewHolder> {
-    List<CameraImage> cameraImageList;
+    List<BottleModel> bottleModelList;
 
 
-    public BottleAdapter(List<CameraImage> cameraImageList) {
-        this.cameraImageList = cameraImageList;
+    public BottleAdapter(List<BottleModel> bottleModelList) {
+        this.bottleModelList = bottleModelList;
     }
 
     @NonNull
@@ -29,12 +30,12 @@ public class BottleAdapter extends RecyclerView.Adapter<BottleViewHolder> {
     @Override
     public void onBindViewHolder(@NonNull BottleViewHolder bottleViewHolder, int i) {
 
-        bottleViewHolder.onBind(cameraImageList.get(i));
+        bottleViewHolder.onBind(bottleModelList.get(i));
 
     }
 
     @Override
     public int getItemCount() {
-        return cameraImageList.size();
+        return bottleModelList.size();
     }
 }
