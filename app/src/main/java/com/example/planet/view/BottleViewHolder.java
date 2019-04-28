@@ -14,6 +14,5 @@ public class BottleViewHolder extends RecyclerView.ViewHolder {
 
     public void onBind(BottleModel bottleModel){
 
-
     }
 }
