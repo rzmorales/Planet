@@ -23,8 +23,8 @@ public class CounterActivity extends AppCompatActivity {
         txtv_consumption_score = findViewById(R.id.consumption_score);
         txtv_recycled_score = findViewById(R.id.recycled_score);
 
-//        Intent intent = getIntent();
-//        consumption_score = intent.getIntExtra(CounterHelper.TAG_CONSUMPTION_SCORE,-1);
+        Intent intent = getIntent();
+        consumption_score = intent.getIntExtra(CounterHelper.TAG_CONSUMPTION_SCORE,-1);
 
         if (savedInstanceState != null) {
             consumption_score = savedInstanceState.getInt(STATE_CONSUMPTION_SCORE);
