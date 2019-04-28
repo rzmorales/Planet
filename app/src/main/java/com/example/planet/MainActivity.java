@@ -163,7 +163,7 @@ public class MainActivity extends AppCompatActivity {
         gallery.addView(can);
 
         ImageView cups = new ImageView(this);
-        cups.setImageResource(R.drawable.cups);
+        cups.setImageResource(R.drawable.cups2);
         cups.setContentDescription("cups");
         cups.setOnClickListener(view -> {
             addObject(Uri.parse("Cups_494.sfb"));
