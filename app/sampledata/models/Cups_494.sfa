@@ -1,16 +1,16 @@
 {
   materials: [
     {
-      name: 'unlit_material',
+      name: 'wire_028149177',
       parameters: [
         {
-          baseColor: 'andy',
+          baseColor: null,
         },
         {
           baseColorTint: [
-            1,
-            1,
-            1,
+            0.10979999999999999,
+            0.58430000000000004,
+            0.69410000000000005,
             1,
           ],
         },
@@ -18,7 +18,7 @@
           metallic: 1,
         },
         {
-          roughness: 1,
+          roughness: 0.242536,
         },
         {
           opacity: null,
@@ -34,16 +34,10 @@
       'Orientation',
     ],
     collision: {},
-    file: 'sampledata/models/andy.obj',
-    name: 'andy',
+    file: 'sampledata/models/Cups_494.obj',
+    name: 'Cups_494',
     recenter: 'root',
+    scale: 0.039518999999999999,
   },
-  samplers: [
-    {
-      file: 'sampledata/models/andy.png',
-      name: 'andy',
-      pipeline_name: 'andy.png',
-    },
-  ],
   version: '0.54:2',
 }
