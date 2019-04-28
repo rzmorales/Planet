@@ -5,7 +5,7 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
-import com.example.planet.model.CameraImage;
+import com.example.planet.model.BottleModel;
 
 import java.io.File;
 import java.util.LinkedList;
@@ -40,29 +40,29 @@ public class CameraDatabase extends SQLiteOpenHelper {
                         " (_id INTEGER PRIMARY KEY AUTOINCREMENT, " +
                         "date TEXT, image TEXT);");
     }
-    public void addCameraImage(CameraImage cameraImage) {
+    public void addCameraImage(BottleModel bottleModel) {
         Cursor cursor = getReadableDatabase().rawQuery(
                 "SELECT * FROM " + TABLE_NAME + " WHERE date = '" +
-                        cameraImage.getDate() + "';", null);
+                        bottleModel.getDate() + "';", null);
         if (cursor.getCount() == 0) {
             getWritableDatabase().execSQL("INSERT INTO " + TABLE_NAME +
-                    "(date, image ) VALUES('" + cameraImage.getDate() + "', '" + cameraImage.getImage().getAbsolutePath() + "');");
+                    "(date, image ) VALUES('" + bottleModel.getDate() + "', '" + bottleModel.getImage().getAbsolutePath() + "');");
             cursor.close();
         }
         cursor.close();
     }
 
-    public LinkedList<CameraImage> getCameraImageList() {
-        LinkedList<CameraImage> studentList = new LinkedList<>();
+    public LinkedList<BottleModel> getCameraImageList() {
+        LinkedList<BottleModel> studentList = new LinkedList<>();
         Cursor cursor = getReadableDatabase().rawQuery(
                 "SELECT * FROM " + TABLE_NAME + ";", null);
         if (cursor != null) {
             if (cursor.moveToFirst()) {
                 do {
-                    CameraImage cameraImage = new CameraImage(
+                    BottleModel bottleModel = new BottleModel(
                             cursor.getString(cursor.getColumnIndex(DATE_KEY)),
                             new File(cursor.getString(cursor.getColumnIndex(IMAGE_KEY))));
-                    studentList.add(cameraImage);
+                    studentList.add(bottleModel);
                 } while (cursor.moveToNext());
             }
             cursor.close();
