@@ -60,8 +60,8 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Toolbar toolbar = findViewById(R.id.toolbar);
-        recyclerView = findViewById(R.id.RecyclerView_id);
-        recyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
+//        recyclerView = findViewById(R.id.RecyclerView_id);
+//        recyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
 
         setSupportActionBar(toolbar);
 
