@@ -110,7 +110,6 @@ public class MainActivity extends AppCompatActivity {
         bubbleTea.setImageResource(R.drawable.bubbletea);
         bubbleTea.setContentDescription("bubbletea");
         bubbleTea.setOnClickListener(view -> {
-            addObject(Uri.parse("Shake.sfb"));
 
         });
 

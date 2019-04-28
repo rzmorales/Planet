@@ -145,15 +145,6 @@ public class ARCoreActivity extends AppCompatActivity {
         return true;
     }
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        int id = item.getItemId();
-        if (id == R.id.action_settings) {
-            return true;
-        }
-
-        return super.onOptionsItemSelected(item);
-    }
 
     private void initializeGallery() {
         LinearLayout gallery = findViewById(R.id.gallery_layout);
