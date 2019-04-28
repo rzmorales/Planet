@@ -142,27 +142,28 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        int itemID = item.getItemId();
-
-        switch (itemID) {
-            case R.id.cameramenu:
-                Intent goToArFrag = new Intent(Intent.ACTION_VIEW, MainActivity.this);
-                startActivity(MainActivity);
-                break;
-
-            case R.id.homemenu:
-                Intent goToHome = new Intent(Intent.ACTION_VIEW, MainActivity.this);
-                startActivity(MainActivity);
-                break;
-
-            case android.R.id.home:
-                this.finish();
-                return true;
-
-            default:
-                return super.onOptionsItemSelected(item);
-        }
-        return true;
+//        int itemID = item.getItemId();
+//
+//        switch (itemID) {
+//            case R.id.cameramenu:
+//                Intent goToArFrag = new Intent(Intent.ACTION_VIEW, MainActivity.this);
+//                startActivity(MainActivity);
+//                break;
+//
+//            case R.id.homemenu:
+//                Intent goToHome = new Intent(Intent.ACTION_VIEW, MainActivity.this);
+//                startActivity(MainActivity);
+//                break;
+//
+//            case android.R.id.home:
+//                this.finish();
+//                return true;
+//
+//            default:
+//                return super.onOptionsItemSelected(item);
+//        }
+        return super.onOptionsItemSelected(item);
+//        return true;
     }
 
     private void initializeGallery() {
