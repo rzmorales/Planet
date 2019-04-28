@@ -82,6 +82,7 @@ public class ARCoreActivity extends AppCompatActivity {
         fab.setOnClickListener(view -> takePhoto());
 
     }
+
     private void onUpdate() {
         boolean trackingChanged = updateTracking();
         View contentView = findViewById(android.R.id.content);
@@ -145,6 +146,31 @@ public class ARCoreActivity extends AppCompatActivity {
         return true;
     }
 
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int itemID = item.getItemId();
+
+        switch (itemID) {
+            case R.id.cameramenu:
+                Intent goToArFrag = new Intent(getApplicationContext(), ARCoreActivity.class);
+                startActivity(goToArFrag);
+                break;
+
+            case R.id.homemenu:
+                Intent goToHome = new Intent(getApplicationContext(), MainActivity.class);
+                startActivity(goToHome);
+                break;
+
+            case R.id.tallymenu:
+                Intent goToTally = new Intent(getApplicationContext(), CounterActivity.class);
+                startActivity(goToTally);
+                break;
+
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+        return true;
+    }
 
     private void initializeGallery() {
         LinearLayout gallery = findViewById(R.id.gallery_layout);
