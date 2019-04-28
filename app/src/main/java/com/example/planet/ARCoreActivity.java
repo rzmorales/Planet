@@ -161,7 +161,6 @@ public class ARCoreActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         int itemID = item.getItemId();
-
         switch (itemID) {
             case R.id.cameramenu:
                 Intent goToArFrag = new Intent(getApplicationContext(), ARCoreActivity.class);
@@ -337,4 +336,7 @@ public class ARCoreActivity extends AppCompatActivity {
             handlerThread.quitSafely();
         }, new Handler(handlerThread.getLooper()));
     }
+
+
+
 }

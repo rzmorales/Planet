@@ -3,5 +3,6 @@
     <string name="action_settings">Settings</string>
     <string name="application_name">Planet</string>
     <string name="title_activity_arcore">ARCoreActivity</string>
+    <string name="recycling_statement">Recycling is important to preserve the environment and to leave the planet in a better condition than we found it. Did you know that the average American throws away four pounds of trash daily? That is more than 1.5 tons of waste per person per year. Multiply that by 6 billion people and you know we have a major problem with waste.</string>
 
 </resources>
