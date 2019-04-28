@@ -1,5 +1,12 @@
 package com.example.planet.model;
 
+<<<<<<< HEAD
+public class CameraImage {
+
+    // TODO: DELETE ME!!!
+
+    private String date;
+=======
 import java.io.File;
 
 public class CameraImage {
@@ -10,12 +17,16 @@ public class CameraImage {
         this.date = date;
         this.image = image;
     }
+>>>>>>> master
 
     public String getDate() {
         return date;
     }
+<<<<<<< HEAD
+=======
 
     public File getImage() {
         return image;
     }
+>>>>>>> master
 }
