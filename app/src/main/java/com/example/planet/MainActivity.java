@@ -15,6 +15,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.PixelCopy;
@@ -23,6 +24,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
+import com.example.planet.ARCore.PointerDrawable;
 import com.google.ar.core.Anchor;
 import com.google.ar.core.Frame;
 import com.google.ar.core.HitResult;
@@ -42,6 +44,7 @@ import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
+import java.util.concurrent.CompletableFuture;
 
 public class MainActivity extends AppCompatActivity {
     // TODO: Remove me later
@@ -114,6 +117,7 @@ public class MainActivity extends AppCompatActivity {
                     isHitting = true;
                     CounterHelper counterHelper = new CounterHelper();
                     counterHelper.increaseConsumptionScore();
+
                     break;
                 }
             }
@@ -213,7 +217,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void placeObject(ArFragment fragment, Anchor anchor, Uri model) {
-        ModelRenderable.builder()
+        CompletableFuture<Void> renderableFuture = ModelRenderable.builder()
                 .setSource(fragment.getContext(), model)
                 .build()
                 .thenAccept(renderable -> addNodeToScene(fragment, anchor, renderable))
@@ -234,6 +238,7 @@ public class MainActivity extends AppCompatActivity {
         node.setParent(anchorNode);
         fragment.getArSceneView().getScene().addChild(anchorNode);
         node.select();
+        Log.d(TAG, "addNodeToScene: ");
     }
 
     private String generateFilename() {
