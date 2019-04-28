@@ -180,21 +180,21 @@ public class MainActivity extends AppCompatActivity {
     private void initializeGallery() {
         LinearLayout gallery = findViewById(R.id.gallery_layout);
 
-        ImageView bubbleTea = new ImageView(this);
-        bubbleTea.setImageResource(R.drawable.bubbletea);
-        bubbleTea.setContentDescription("bubbletea");
-        bubbleTea.setOnClickListener(view -> {
-            addObject(Uri.parse("Shake.sfb"));
-        });
-        gallery.addView(bubbleTea);
+//        ImageView bubbleTea = new ImageView(this);
+//        bubbleTea.setImageResource(R.drawable.bubbletea);
+//        bubbleTea.setContentDescription("bubbletea");
+//        bubbleTea.setOnClickListener(view -> {
+//            addObject(Uri.parse("Shake.sfb"));
+//        });
+//        gallery.addView(bubbleTea);
 
-        ImageView can = new ImageView(this);
-        can.setImageResource(R.drawable.can);
-        can.setContentDescription("can");
-        can.setOnClickListener(view -> {
-            addObject(Uri.parse("Beer.sfb"));
-        });
-        gallery.addView(can);
+//        ImageView can = new ImageView(this);
+//        can.setImageResource(R.drawable.can);
+//        can.setContentDescription("can");
+//        can.setOnClickListener(view -> {
+//            addObject(Uri.parse("Beer.sfb"));
+//        });
+//        gallery.addView(can);
 
         ImageView cups = new ImageView(this);
         cups.setImageResource(R.drawable.cups2);

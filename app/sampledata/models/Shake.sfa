@@ -115,7 +115,7 @@
     file: 'sampledata/models/Shake.obj',
     name: 'Shake',
     recenter: 'root',
-    scale: 0.175,
+    scale: 0.05,
   },
   samplers: [
     {
