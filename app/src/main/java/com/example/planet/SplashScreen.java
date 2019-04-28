@@ -10,7 +10,7 @@ import com.bumptech.glide.Glide;
 
 public class SplashScreen extends AppCompatActivity {
     ImageView splashImage;
-    private static int SPLASH_SCREEN_TIMER = 5000;
+    private static int SPLASH_SCREEN_TIMER = 5750;
     private Intent toLoginScreenIntent;
 
     @Override
