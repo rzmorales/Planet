@@ -54,6 +54,8 @@ public class ARCoreActivity extends AppCompatActivity {
     private PointerDrawable pointer = new PointerDrawable();
     private boolean isTracking;
     private boolean isHitting;
+    int count;
+    CounterHelper counterHelper;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -130,8 +132,9 @@ public class ARCoreActivity extends AppCompatActivity {
                 if (trackable instanceof Plane &&
                         ((Plane) trackable).isPoseInPolygon(hit.getHitPose())) {
                     isHitting = true;
-                    CounterHelper counterHelper = new CounterHelper();
-                    counterHelper.increaseConsumptionScore();
+
+//                    CounterHelper counterHelper = new CounterHelper();
+//                    counterHelper.increaseConsumptionScore();
                     break;
                 }
             }
@@ -297,7 +300,8 @@ public class ARCoreActivity extends AppCompatActivity {
     private void takePhoto() {
         final String filename = generateFilename();
         ArSceneView view = fragment.getArSceneView();
-
+        count++;
+        counterHelper = new  CounterHelper(count);
         final Bitmap bitmap = Bitmap.createBitmap(view.getWidth(), view.getHeight(),
                 Bitmap.Config.ARGB_8888);
 

@@ -10,6 +10,20 @@ public class CounterHelper extends AppCompatActivity {
     private static int consumption_score;
     private int consumption;
     private int recycled_score;
+    private int count;
+
+    public CounterHelper(int count) {
+        this.count = count;
+    }
+
+    public int getCount() {
+        return count;
+    }
+
+    public int add(int intNum){
+        intNum++;
+        return intNum;
+    }
 
     public static final String TAG_CONSUMPTION_SCORE = "Consumption Score";
     public static final String TAG_RECYCLED_SCORE = "Recycled Score";
