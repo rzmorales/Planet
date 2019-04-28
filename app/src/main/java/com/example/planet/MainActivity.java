@@ -71,7 +71,47 @@ public class MainActivity extends AppCompatActivity {
 
                 Intent intent = new Intent(MainActivity.this, ARCoreActivity.class);
                  startActivity(intent);
-            }
+                 }
+            });
+    }
+
+
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+//        int itemID = item.getItemId();
+//
+//        switch (itemID) {
+//            case R.id.cameramenu:
+//                Intent goToArFrag = new Intent(Intent.ACTION_VIEW, MainActivity.this);
+//                startActivity(MainActivity);
+//                break;
+//
+//            case R.id.homemenu:
+//                Intent goToHome = new Intent(Intent.ACTION_VIEW, MainActivity.this);
+//                startActivity(MainActivity);
+//                break;
+//
+//            case android.R.id.home:
+//                this.finish();
+//                return true;
+//
+//            default:
+//                return super.onOptionsItemSelected(item);
+//        }
+        return super.onOptionsItemSelected(item);
+//        return true;
+    }
+
+    private void initializeGallery() {
+        LinearLayout gallery = findViewById(R.id.gallery_layout);
+
+        ImageView bubbleTea = new ImageView(this);
+        bubbleTea.setImageResource(R.drawable.bubbletea);
+        bubbleTea.setContentDescription("bubbletea");
+        bubbleTea.setOnClickListener(view -> {
+            addObject(Uri.parse("Shake.sfb"));
+
         });
 
 
